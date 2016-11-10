@@ -11,9 +11,7 @@
   function reddit($http) {
     /*jshint validthis: true */
     var vm = this;
-
-    vm.test = 'REDDIT!';
-    vm.getComments = (username => {
+    vm.getComment = (username => {
       return $http.get(`https://impersonator.herokuapp.com/reddit/${username}`);
     });
   }
