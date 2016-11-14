@@ -23,9 +23,9 @@
       };
     }]);
 
-  mainController.$inject = ['reddit'];
+  mainController.$inject = ['reddit', '$scope'];
 
-  function mainController(reddit) {
+  function mainController(reddit, $scope) {
     /*jshint validthis: true */
     var vm = this;
 

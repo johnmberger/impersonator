@@ -6,44 +6,60 @@
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
   </head>
 
   <body class="container" ng-cloak>
     <!-- sample angular code -->
+    <h1 class="text-center">Impersonator Bot</h1>
+    <p class="text-center">
+      This site generates a comment based on a user's reddit comment history using <a href="https://en.wikipedia.org/wiki/Natural_language_processing">Natural Language Processing</a> and <a href="https://en.wikipedia.org/wiki/Markov_chain">Markov Chains</a>.
+    </p>
     <div class="jumbotron">
-      <h1>Testing</h1>
     </div>
     <div class="col-md-12">
       <div ng-controller="mainController as mainCtrl">
-        <p>{{ mainCtrl.test }}</p>
-        <input type="text" name="name" ng-model="mainCtrl.redditUsername" class="form-control">
-        <button ng-click="mainCtrl.getSentence(mainCtrl.redditUsername)" type="button" name="button" class="form-control">Make a sentence!</button>
-        <p>
-          The first time will take a minute! Subsequent requests will be much faster.
-        </p>
-        <div class="loader" data-loading>
-          <div class="loader">Loading...</div>
+        <div class="row">
+          <form ng-submit="mainCtrl.getSentence(mainCtrl.redditUsername)">
+            <div class="col-md-8">
+              <input type="text" id="username" name="name" ng-model="mainCtrl.redditUsername" class="form-control" ng-change="mainCtrl.showComment = false" placeholder="Enter a reddit username!">
+              <label for="username">The first time will take a minute! Subsequent requests should be faster.
+              </label>
+            </div>
+            <div class="col-md-4">
+              <button ng-click="mainCtrl.getSentence(mainCtrl.redditUsername)" type="button" name="button" class="form-control btn btn-danger">Make a sentence!</button>
+            </div>
+          </form>
         </div>
-        <div ng-if="mainCtrl.showComment" class="generated-comment">
-          <span class="user-info">
-            <span class="expand">[-]</span>
-            <a class="username" ng-href="http://www.reddit.com/u/{{mainCtrl.redditUsername}}" target="_blank">{{mainCtrl.redditUsername}}</a>
-            <strong>1234 Points</strong>
-            <span class="time">Just Now</span>
-          </span>
-          <p class="generated-sentence">
-            {{mainCtrl.sentence}}
-          </p>
-          <span class="links">
-            <span>permalink</span>
-            <span>source</span>
-            <span>embed</span>
-            <span>save</span>
-            <span>report</span>
-            <span>reply</span>
-          </span>
+        <div class="row">
+          <div class="loader" data-loading>
+            <div class="loader">Loading...</div>
+          </div>
         </div>
-
+        <div class="row">
+          <br>
+          <br>
+          <div ng-if="mainCtrl.showComment" class="generated-comment">
+            <span class="user-info">
+              <span class="expand">[-]</span>
+              <a class="username" ng-href="http://www.reddit.com/u/{{mainCtrl.redditUsername}}" target="_blank">{{mainCtrl.redditUsername}}</a>
+              <strong>1337 Points</strong>
+              <span class="time">Just Now</span>
+            </span>
+            <p class="generated-sentence">
+              {{mainCtrl.sentence}}
+            </p>
+            <span class="links">
+              <span>permalink</span>
+              <span>source</span>
+              <span>embed</span>
+              <span>save</span>
+              <span>report</span>
+              <span>reply</span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -1,3 +1,4 @@
+/*loader*/
 .loader,
 .loader:before,
 .loader:after {
@@ -58,8 +59,15 @@
   }
 }
 
+/*ng-cloak workaround*/
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/*styles*/
 body {
   font-family: verdana;
+  margin-bottom: 25px;
 }
 .user-info {
   font-size: 1.05rem;
@@ -89,4 +97,12 @@ body {
 }
 .generated-sentence {
   margin-top: 5px;
+}
+.jumbotron {
+  background: url('https://s-media-cache-ak0.pinimg.com/236x/13/a4/b1/13a4b1f3bdcf19ee982663082981b652.jpg');
+  height: 33vh;
+}
+h1 {
+  font-family: 'Space Mono', monospace;
+  color: limegreen;
 }
