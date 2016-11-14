@@ -99,7 +99,7 @@ body {
   margin-top: 5px;
 }
 .jumbotron {
-  background: url('https://s-media-cache-ak0.pinimg.com/236x/13/a4/b1/13a4b1f3bdcf19ee982663082981b652.jpg');
+  background: url('../img/robot.jpg');
   height: 33vh;
 }
 h1 {
